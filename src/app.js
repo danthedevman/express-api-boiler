@@ -13,7 +13,6 @@ import WorkspaceRoutes from "./routes/workspaces.js";
 import RecordRoutes from "./routes/records.js";
 import MediaRoutes from "./routes/media.js";
 import UserRoutes from "./routes/users.js";
-import SettingsRoutes from "./routes/settings.js";
 
 dotenv.config();
 
@@ -35,7 +34,7 @@ app.use(WorkspaceRoutes);
 
 app.use("/w/:workspace", requireAuth, requireWorkspaceAccess);
 
-app.use("/w/:workspace/", RecordsRoutes, MediaRoutes, UserRoutes, SettingsRoutes);
+app.use("/w/:workspace/", RecordRoutes, MediaRoutes, UserRoutes);
 
 app.use((req, res) => {
   res.status(404).send("Sorry, the page you're looking for was not found.");
